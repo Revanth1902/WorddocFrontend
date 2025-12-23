@@ -10,16 +10,15 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const [deleteDoc, setDeleteDoc] = useState(null);
 
-  const fetchDocs = async () => {
-    try {
-      const res = await api.get('/documents');
-      setDocs(res.data);
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setLoading(false);
-    }
-  };
+const fetchDocs = async () => {
+  try {
+    const res = await api.get('/documents'); // cookie sent automatically
+    setDocs(res.data);
+  } catch (err) {
+    console.error('Error fetching docs:', err.response?.status, err.response?.data);
+  }
+};
+
 
   useEffect(() => {
     fetchDocs();
