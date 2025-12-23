@@ -1,0 +1,67 @@
+.editor-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f9fafb;
+}
+
+.editor-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.editor-toolbar button,
+.image-upload {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  background: #eef2ff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.editor-toolbar button:hover,
+.image-upload:hover {
+  background: #c7d2fe;
+  transform: translateY(-1px);
+}
+
+.editor-content {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  background: #fff;
+  outline: none;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.editor-content img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+.saving {
+  margin-left: auto;
+  font-size: 14px;
+  color: #10b981;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .editor-toolbar {
+    justify-content: center;
+  }
+
+  .editor-content {
+    font-size: 15px;
+  }
+}
