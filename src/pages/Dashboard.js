@@ -11,11 +11,18 @@ const Dashboard = () => {
   const [deleteDoc, setDeleteDoc] = useState(null);
 
 const fetchDocs = async () => {
+  setLoading(true);
   try {
-    const res = await api.get('/documents'); // cookie sent automatically
+    const res = await api.get('/documents');
     setDocs(res.data);
   } catch (err) {
-    console.error('Error fetching docs:', err.response?.status, err.response?.data);
+    if (err.response?.status === 401) {
+      navigate('/login'); // redirect if not logged in
+    } else {
+      console.error('Error fetching docs:', err.response?.data);
+    }
+  } finally {
+    setLoading(false);
   }
 };
 
